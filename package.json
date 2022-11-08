@@ -1,0 +1,15 @@
+{
+  "name": "ynov-api",
+  "version": "1.0.0",
+  "description": "to do list basique",
+  "main": "app.js",
+  "author": "<ambroise.morandeau@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "script": {
+    "dev": "nodemon server-raw.js"
+  }
+}
