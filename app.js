@@ -1,5 +1,6 @@
 import '#config/database.js'
 import Exemple from '#components/exemple/exemple-model.js'
+import Task from '#components/tasks/task-model.js'
 import Koa from 'koa'
 import respond from 'koa-respond'
 import Router from '@koa/router'
