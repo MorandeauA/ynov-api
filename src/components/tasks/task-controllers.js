@@ -13,13 +13,17 @@ export async function create (ctx) {
     try {
         const taskValidationSchema = Joi.object({
             title: Joi.string().required(),
-            description: Joi.string(),
-            timeStamp: Joi.date().timestamp(),
+            description: Joi.string().optional(),
+            timeStamp: Joi.date().timestamp().optional(),
         })
 
         const { error } = taskValidationSchema.validate(ctx.request.body)
-        if(error) throw new Error(error)
-        await Task.create(ctx.response.body)    
+        if(error) {
+            throw new Error(error)
+        } else {
+            ctx.body = await Task.create(ctx.request.body);
+        }
+        ctx.body = await Task.find({})
     } catch (e) {
         ctx.badRequest({ message: e.message })
     }
