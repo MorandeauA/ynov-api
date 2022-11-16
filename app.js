@@ -9,8 +9,8 @@ import { API_V1_ROUTER } from '#routes/index.js'
 const app = new Koa()
 
 app
-.use(API_V1_ROUTER.routes())
 .use(respond())
+.use(API_V1_ROUTER.routes())
 .use(API_V1_ROUTER.allowedMethods())
 
 app.listen(process.env.PORT, () => console.log(`server listening to port: ${process.env.PORT}`))

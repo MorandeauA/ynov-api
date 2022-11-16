@@ -18,7 +18,8 @@ export async function create (ctx) {
         })
 
         const { error } = taskValidationSchema.validate(ctx.request.body)
-        if(error) throw new Error(error)    
+        if(error) throw new Error(error)
+        await Task.create(ctx.response.body)    
     } catch (e) {
         ctx.badRequest({ message: e.message })
     }
