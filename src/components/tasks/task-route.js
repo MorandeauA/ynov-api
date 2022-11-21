@@ -5,6 +5,8 @@ const task = new Router()
 
 task.get('/', TaskControllers.index)
 
+task.get('/:id', TaskControllers.indexId);
+
 task.post('/', TaskControllers.create)
 
 task.put('/:id', TaskControllers.update)

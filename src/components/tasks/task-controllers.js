@@ -9,6 +9,14 @@ export async function index (ctx) {
     }
 }
 
+export async function indexId (ctx) {
+    try {
+        ctx.body = await Task.findById(ctx.params.id)
+    }catch (e) {
+        ctx.badRequest({message: e.message})
+    }
+}
+
 export async function create (ctx) {
     try {
         const taskValidationSchema = Joi.object({
